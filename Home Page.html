@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Stride for Wellness</title>
+        <link rel="icon" type="image/x-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuVRgpEw7J7vgL_obelNw_t__8zjcFNsJuBCUtIhoDDKCgKVy489uOv5QBMh1guyVVWtg&usqp=CAU">
+        <style>
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                margin: 0;
+                font-family: 'Trebuchet MS', sans-serif;
+                background: linear-gradient(30deg ,#8E94F2,#9FA0FF,#BBADFF, #DAB6FC);
+                animation: gradientMove 10s ease infinite;
+                margin-left: 0px;
+                margin-right: 0px;
+                background-attachment: fixed;
+                background-size: cover;
+                background-repeat: no-repeat;
+                cursor: default;
+            }
+
+            @keyframes gradientMove {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+            }
+
+            header {
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                right: 0px;
+                height: 80px;
+                background: rgba(255, 255, 255, 0.3);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-bottom: white;
+                color: #5DFDCB;
+                display: flex;
+                flex-direction: row;  
+                justify-content: space-between;
+                align-items: center;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+                z-index: 1000;
+                overflow: hidden;
+                transition: height 0.1s ease-out;
+            }
+
+            .mainHeading {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                text-align: center;
+            }
+
+            .heading {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 80px;
+                margin-left: 50px;
+                align-items: center;
+            }
+
+            .controlButtons {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                margin-right: 50px;
+            }
+
+            h2 {
+                transition: 0.3s;
+            }
+
+            .title {
+                font-size: 100px;
+                color: white;
+            }
+
+            .mainHeading .title {
+                animation: rotateShadow 3s linear infinite;
+                margin-top: 20px;
+            }
+
+            @keyframes rotateShadow {
+                0% {
+                    text-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+                }
+                25% {
+                    text-shadow: -5px 5px 15px rgba(0,0,0,0.3);
+                }
+                50% {
+                    text-shadow: -5px -5px 15px rgba(0,0,0,0.3);
+                }
+                75% {
+                    text-shadow: 5px -5px 15px rgba(0,0,0,0.3);
+                }
+                100% {
+                    text-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+                }
+            }
+
+            header .title {
+                font-size: 28px;
+                color: white;
+                text-shadow: 1px 2px 6px rgba(78, 65, 135, 0.5);
+                cursor: pointer;
+                text-decoration: none;
+            }
+
+            .subtitle {
+                font-size: 25px;
+                color: #4E4187;
+                overflow: hidden;
+                white-space: nowrap;
+                display: inline-block;
+            }
+
+            .walkingEmoji {
+                font-size: 150px;
+                padding-top: 20px;
+                text-shadow: 1px 2px 6px rgba(78, 65, 135, 0.2);
+            }
+
+            .scrollMotivator {
+                padding-top: 100px;
+                font-size: 18px;
+                color: white;
+                animation: up-down 2s infinite ease-in-out;
+            }
+
+            @keyframes up-down {
+                0% {
+                    transform: translateY(0px);
+                    text-shadow: 0px 0px 10px rgb(78, 65, 135);
+                    font-size: 18px;
+                }
+                50% {
+                    transform: translateY(-20px);
+                    text-shadow: 0px 20px 15px rgba(78, 65, 135, 0.6);
+                    font-size: 20px;
+                }
+                100% {
+                    transform: translateY(0px);
+                    text-shadow: 0px 0px 10px rgb(78, 65, 135);
+                    font-size: 18px;
+                }
+            }
+
+            .control_button{
+                padding: 5px;
+                color: #4E4187;
+                margin: 10px;
+                font-size: 15px;
+                transition: 0.3s;
+                transition: transform 0.5s ease;
+                text-decoration: none;
+            }
+
+            .control_button:hover {
+                color: #4E4187;
+                transform: scale(1.3);
+            }
+  
+            p {
+                color: #4E4187;
+                font-size: 18px;
+                line-height: 1.6;
+                text-align: justify;
+                margin: 20px;
+                margin-top: 0px;
+            }
+ 
+            ul{
+                color: #4E4187;
+                font-size: 18px;
+                line-height: 1.6;
+                text-align: justify;
+                margin: 20px;
+            }
+
+            .w-btn{
+                color: white;
+                font-size: 18px;
+                line-height: 1.6;
+                text-align: justify;
+            }
+
+            .tips-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+                padding: 40px;
+            }
+
+            .tip-box {
+                background:rgba(255, 255, 255, 0.3);
+                background: linear-gradient(30deg ,rgba(255, 255, 255, 0.2),rgba(255, 255, 255, 0.3),rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.3));
+                animation: gradientMove-tipBox 5s ease infinite;
+                backdrop-filter: blur(10px);
+                color: white;
+                border-radius: 12px;
+                padding: 20px;
+                margin-bottom: 3px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+                text-align: center;
+                transition: 0.3s;
+                transition: transform 0.3s ease;
+            }
+
+            @keyframes gradientMove-tipBox {
+                0% {
+                    background-position: 0% 0%;
+                }
+                40% {
+                    background-position: 0% 25%;
+                }
+                50% {
+                    background-position: 0% 100%;
+                }
+                60% {
+                    background-position: 0% 25%;
+                }
+                100% {
+                    background-position: 0% 0%;
+                }
+            }
+
+            .tip-box:hover {
+                box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+                transform: scale(1.025);
+            }
+
+            .tip-box:hover h2 {
+                font-size: 25px;
+            } 
+
+            .box-head {
+                color: #4e4187d6;
+                font-size: 19px;
+            }
+
+            .head {
+                color: white;
+                font-size: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                margin-top: 100px;
+                margin-bottom: 60px;
+            }
+
+            .mainHeading {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .box {
+                padding: 40px;
+                margin: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background: rgba(255, 255, 255, 0.3);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border: white;
+                border-radius: 20px;
+                border-width: 2px;
+                text-align: center;
+                text-decoration: none;
+                font-size: 18px;
+                transition: 0.3s;
+                box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+                color: #4E4187;
+            }
+
+            .wellnessImportance {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                margin-left: 100px;
+                margin-right: 100px;
+                box-shadow: 0px 2px 15px rgba(142, 148, 242, 0.2);
+            }
+
+            .wellnessImportance .box {
+                height: 250px;
+            }
+
+            .wellnessImportance .box:hover {
+                cursor: pointer;
+                transform: scale(1.05);
+                background: rgba(255, 255, 255, 0.5);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
+            }
+
+            .emoji {
+                font-size: 70px;
+                margin-bottom: 30px;
+            }
+
+            .tips-container .emoji {
+                font-size: 80px;
+                margin-bottom: 25px;
+            }
+
+            .wave svg {
+                display: block;
+                width: 100%;
+                height: 100px; /* Adjust the height */
+                margin: 0px;
+            }
+
+            .importanceSection {
+                margin: 0px;
+                background-color: rgba(142, 148, 242, 0.5);
+                padding-bottom: 100px;
+            }
+
+            .quoteBox {
+                width: 1270px;
+                height: 250px;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: rgb(255, 255, 255);
+                padding-left: 100px;
+                padding-right: 100px;
+                z-index: 1;
+                box-shadow: 0px 0px 6px rgb(255, 255, 255);
+                margin: 0px;
+            }
+
+            .quote {
+                font-size: 30px;
+                color: #8E94F2;
+                text-align: center;
+                overflow: hidden;
+                width: 0ch;
+                display: inline-block;
+                white-space: nowrap;
+                animation: typing 7s steps(89, end) infinite;
+            }
+
+            @keyframes typing {
+                0% {
+                    width: 0%;
+                }
+                70% {
+                    width: 100%;
+                }
+                100% {
+                    width: 100%;
+                }
+            }
+
+            .quoter {
+                font-size: 25px;
+                color: #4E4187;
+                text-align: right;
+                width: 1200px;
+                padding-top: 20px;
+            }
+
+            .aspects {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+                justify-items: center;
+                align-items: start;
+                margin-left: 80px;
+                margin-right: 80px;
+            }
+
+            .aspects .box {
+                width: 600px;
+                overflow: hidden;
+                white-space: wrap;
+            }
+
+            .footer {
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                width: 100%;
+                max-width: 100%;
+                background: rgb(78, 65, 135);
+                text-align: left;
+                color: #ffffffd0;
+                padding: 40px 60px;
+                box-sizing: border-box;
+            }
+
+            .footer-column {
+                flex: 1 1 250px;
+                margin: 10px 20px;
+                min-width: 220px;
+            }
+
+            .footer-column h3 {
+                color: #ffffff;
+                margin-bottom: 10px;
+                font-size: 20px;
+                text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+                border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+                padding-bottom: 5px;
+            }
+
+            .footer-column a {
+                color: #ffffffd0;
+                text-decoration: none;
+                transition: 0.3s;
+            }
+
+            .footer-column a:hover {
+                color: white;
+                text-decoration: none;
+            }
+
+            .bottomBar {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                max-width: 100%;
+                background: #292248;
+                text-align: center;
+                color: #4E4187;
+                box-sizing: border-box;
+                margin: 0px;
+                font-size: 15px;
+                padding: 7px;
+            }
+
+            .footer p {
+                color: #ffffffd0;
+                font-size: 18px;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <header>
+            <div class="heading">
+                <a class="title" href="Home Page.html">Stride for Wellness</a>
+            </div>
+
+            <div class="controlButtons">
+                <a href="Home Page.html" class="control_button">Home</a>
+                <a href="About Page.html" class="control_button">About</a>
+                <a href="Contact Page.html" class="control_button">Contact Us</a>
+            </div>
+        </header>
+
+        <br>
+
+        <div class="mainHeading">
+            <div class="title">Stride for Wellness</div>
+
+            <div class="subtitle">“Take a Step Towards a Healthier and Happier Life.”</div>
+
+            <div class="walkingEmoji"><img src="https://static01.nyt.com/images/2016/03/25/health/wellguides_running/wellguides_running-articleLarge-v2.gif?quality=75&auto=webp&disable=upscale" alt="Running Man" width="300px"></div>
+
+            <i class="scrollMotivator">Scroll down to know more!</i>
+        </div>
+
+        <br>
+        
+        <b class="head"  style="margin-top: 0px;">What is Stride for Wellness?</b>
+
+        <p class="box" style="margin-left: 100px; margin-right: 100px;">Stride for Wellness is an informative platform dedicated to promoting holistic health. It focuses on five key aspects — physical, mental, social, intellectual and emotional wellness. The goal is to help individuals make conscious lifestyle choices that enhance both body and mind. Whether it’s developing healthy habits, maintaining fitness, or managing stress, Stride for Wellness provides simple, practical insights for everyone.</p>
+
+        <br>
+
+        <p>
+            <b class="head"> What Is Wellness?</b>
+
+            <div class="box" style="margin-left: 100px; margin-right: 100px;">
+                <p>Wellness is the state of being healthy in the body and the mind, achieved through active, conscious choices that promote good health. It's more than just the absence of disease; it's an ongoing, multidimensional process of making optimal choices in areas like physical, mental, emotional, social, and spiritual well-being to achieve a fulfilling life.</p>
+            </div>
+        </p>
+
+        <b class="head">Key aspects of wellness:</b>
+
+        <div class="tips-container">
+            <div class="tip-box">
+                <h2>Active Process Based</h2>
+                <div class="emoji">♾️</div>
+                <p>
+                    Wellness is not a static state but a continuous, self-directed process of making choices that lead to a healthy and fulfilling life.
+                </p>
+            </div>
+
+            <div class="tip-box">
+                <h2>Multidimensional</h2>
+                <div class="emoji">🧍</div>
+                <p>
+                    It encompasses multiple aspects of life, like physical health, mental and emotional well-being, social well-being, spiritual well-being, etc.
+                </p>
+            </div>
+
+            <div class="tip-box">
+                <h2>Occupational and Intellectual</h2>
+                <div class="emoji">👨‍⚕️</div>
+                <p>
+                    The focus is on preventing illness and prolonging life through healthy habits and lifestyle changes, rather than solely on treating diseases.
+                </p>
+            </div>
+
+            <div class="tip-box">
+                <h2>Holistic</h2>
+                <div class="emoji">⚖️</div>
+                <p>
+                    It considers the whole person and aims for an optimal state of health, as defined by the World Health Organization (WHO) as a state of complete physical, mental, and social well-being, not merely the absence of disease.
+                </p>
+            </div>
+        </div>
+
+        <div class="wave">
+            <svg class="wave" viewBox="0 0 1440 150" preserveAspectRatio="none">
+                <path d="M0,80 C360,150 1080,0 1440,80 L1440,150 L0,150 Z" fill="rgba(142, 148, 242,0.5)">
+                    <animate 
+                        attributeName="d" 
+                        dur="6s" 
+                        repeatCount="indefinite" 
+                        values="
+                            M0,80 C360,150 1080,0 1440,80 L1440,150 L0,150 Z;
+                            M0,90 C360,0 1080,150 1440,90 L1440,150 L0,150 Z;
+                            M0,80 C360,150 1080,0 1440,80 L1440,150 L0,150 Z
+                        ">
+                    </animate>
+                </path>
+            </svg>
+        </div>
+        <div class="importanceSection">
+            <p>
+                <b class="head" style="margin-top: 0px;">Why Is Wellness Important? </b>
+            </p>
+
+            <p class="box" style="margin-left: 100px; margin-right: 100px;">Wellness is important because it improves physical and mental health, leading to a better quality of life and increased longevity. By practicing wellness, you can prevent chronic diseases, reduce stress and anxiety, improve your relationships, and boost productivity. Prioritizing your well-being is key to thriving rather than just surviving.</p>
+
+            <br>
+
+            <div class="wellnessImportance">
+                <div onclick="window.open('https://globalwellnessinstitute.org/what-is-wellness/physical-activity/', '_blank')" class="box">
+                    <div class="emoji">💪</div>
+                    <br>
+                    <b>Physical Wellness:</b>
+                    Regular exercise improves strength, immunity, and energy levels.
+                </div>            
+                <div onclick="window.open('https://globalwellnessinstitute.org/what-is-wellness/mental-wellness/', '_blank')" class="box">
+                    <div class="emoji">🧠</div>
+                    <br>
+                    <b>Mental Wellness:</b>
+                    Mindfulness, rest, and emotional awareness build resilience and peace.
+                </div>
+                <div onclick="window.open('https://www.nih.gov/health-information/your-healthiest-self-wellness-toolkits/social-wellness-toolkit', '_blank')" class="box">
+                    <div class="emoji">🤝</div>
+                    <br>
+                    <b>Social Wellness:</b>
+                    Positive relationships and communication boost confidence and happiness.
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <div class="quoteBox">
+            <div class="quote">"We do not stop exercising because we grow old - We grow old because we stop exercising."</div>
+            <div class="quoter">~ Dr. Kenneth Cooper</div>
+        </div>
+
+        <div class="head">Wellness Tips to lead a Better Life</div>
+
+        <div class="tips-container">
+            <div class="tip-box">
+                <h2>Physical Wellness</h2>
+                <div class="emoji">🏋️</div>
+                <b><p class="box-head">A healthy body sets the foundation for a healthy mind.</b>
+                    <ul>
+                        <li>Exercise at least 30 minutes a day — walking, dancing, or yoga all count.
+                        <li>Eat balanced meals rich in fruits, vegetables, and proteins.
+                        <li>Get 7–8 hours of sleep daily to help your body recover and grow.
+                        <li>Stay hydrated — drink enough water throughout the day.
+                    </ul>
+                </p>
+            </div>
+
+            <div class="tip-box">
+                <h2>Mental Wellness</h2>
+                <div class="emoji">🧘</div>
+               <b><p class="box-head">True wellness begins in the mind.</b>
+                    <ul>
+                        <li>Practice deep breathing or meditation to manage stress.
+                        <li>Keep a gratitude journal — writing one good thing daily trains your brain to stay positive.
+                        <li>Limit screen time and take small “digital breaks.”
+                        <li>Talk to someone you trust when you feel overwhelmed.
+                    </ul>
+                </p>
+            </div>
+
+            <div class="tip-box">
+                <h2>Social Wellness</h2>
+                <div class="emoji">🤝</div>
+                <b><p class="box-head">Strong relationships are a key part of feeling well.</b>
+                    <ul>
+                        <li>Surround yourself with supportive, positive people.
+                        <li>Respect others’ opinions even when you disagree.
+                        <li>Volunteer or help someone in need — kindness improves mood.
+                        <li>Communicate openly; it strengthens trust.
+                    </ul>
+                </p>
+            </div>
+
+            <div class="tip-box">
+                <h2>Environmental Wellness</h2>
+                <div class="emoji">🌿</div>
+                <b><p class="box-head">Your surroundings affect your mood and energy.</b>
+                    <ul>
+                        <li>Keep your workspace and room clean and organized.
+                        <li>Spend time outdoors — sunlight boosts your mood and vitamin D levels.
+                        <li>Avoid wasting water, electricity, and plastic.
+                        <li>Surround yourself with greenery — even a small plant helps.
+                    </ul>
+                </p>
+            </div>
+        </div>
+
+        <br>
+
+        <footer class="footer">
+            <div class="footer-column">
+                <a href="Contact Page.html"><h3 class="contactLink">💬 Contact us</h3></a>
+                <p><div style="color: #ffffff;">☎️ Phone</div><br>+91 93500 26432<br>+91 80762 69096</p>
+                <p><div style="color: #ffffff;">✉️ Email</div><br>amoli97318@gmail.com<br>shaurya70025@dpsgurgaon.org</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>📍 Location</h3>
+                <p style="font-size: 16px; line-height: 1; text-align: left; margin: 0px;">Delhi Public School<br>Sector–45, Gurugram</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>🔗 Extra Resources</h3>
+                <a href="https://healthymale.org.au/health-article/what-is-physical-mental-social-health">What is Health?</a>
+                <br>
+                <a href="https://globalwellnessinstitute.org/what-is-wellness/physical-activity/">Physical Wellness</a>
+                <br>
+                <a href="https://globalwellnessinstitute.org/what-is-wellness/mental-wellness/">Mental Wellness</a>
+                <br>
+                <a href="https://www.nih.gov/health-information/your-healthiest-self-wellness-toolkits/social-wellness-toolkit">Social Wellness</a>
+                <br>
+                <a href="https://www.who.int/health-topics/self-care#tab=tab_1">WHO Health Article</a>
+            </div>
+        </footer>
+
+        <div class="bottomBar">Copyright © 2025 | Stride for Wellness | Created by Shaurya Mehra and Amoli Agrawal</div>
+
+        <script>
+            window.addEventListener('mouseover', initLandbot, { once: true });
+            window.addEventListener('touchstart', initLandbot, { once: true });
+            var myLandbot;
+            function initLandbot() {
+                if (!myLandbot) {
+                    var s = document.createElement('script');
+                    s.type = "module"
+                    s.async = true;
+                    s.addEventListener('load', function() {
+                        myLandbot = new Landbot.Popup({
+                            configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-3192682-3QB1GKNDN3BUVDBJ/index.json',
+                        });
+                    });
+                    s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs';
+                    var x = document.getElementsByTagName('script')[0];
+                    x.parentNode.insertBefore(s, x);
+                }
+            }
+        </script>
+    </body>
+</html>

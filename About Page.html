@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Stride for Wellness</title>
+        <link rel="icon" type="image/x-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuVRgpEw7J7vgL_obelNw_t__8zjcFNsJuBCUtIhoDDKCgKVy489uOv5QBMh1guyVVWtg&usqp=CAU">
+        <style>
+            /*
+            Colors used:
+            White - rgb(255, 255, 255);
+            Dark Blue (Headings) - rgb(20, 51, 153)
+            Navy Blue (Dark Shadow) - #00015a
+            Blue (Content) - rgb(30, 70, 200)
+            Turquoise Blue (Light Shadow) - #006f97
+            Light Blue - rgb(0, 170, 250)
+            */
+
+            body {
+                margin: 0;
+                font-family: 'Trebuchet MS', sans-serif;
+                background: linear-gradient(30deg ,#8E94F2,#9FA0FF,#BBADFF, #DAB6FC);
+                animation: gradientMove 10s ease infinite;
+                margin-left: 0px;
+                margin-right: 0px;
+                background-attachment: fixed;
+                background-size: cover;
+                background-repeat: no-repeat;
+                cursor: default;
+            }
+
+            @keyframes gradientMove {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+            }
+
+            header {
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                right: 0px;
+                height: 80px;
+                background: rgba(255, 255, 255, 0.3);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-bottom: white;
+                color: #5DFDCB;
+                display: flex;
+                flex-direction: row;  
+                justify-content: space-between;
+                align-items: center;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+                z-index: 1000;
+                overflow: hidden;
+                transition: height 0.1s ease-out;
+            }
+
+            .heading {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 80px;
+                margin-left: 50px;
+                align-items: center;
+            }
+
+            .controlButtons {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                margin-right: 50px;
+            }
+
+            h2 {
+                transition: 0.3s;
+            }
+
+            .title {
+                font-size: 28px;
+                color: white;
+                text-shadow: 1px 2px 6px rgba(78, 65, 135, 0.5);
+            }
+
+            .control_button{
+                padding: 5px;
+                color: #4E4187;
+                margin: 10px;
+                font-size: 15px;
+                transition: 0.3s;
+                transition: transform 0.5s ease;
+                text-decoration: none;
+            }
+
+            .control_button:hover {
+                color: #4E4187;
+                transform: scale(1.3);
+            }
+  
+            p {
+                color: #4E4187;
+                font-size: 18px;
+                line-height: 1.6;
+                text-align: justify;
+                margin: 20px;
+                margin-top: 0px;
+            }
+ 
+            .head {
+                color: white;
+                font-size: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .About {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .aboutSection {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 1000px;
+            }
+
+            .aboutSection .head {
+                font-size: 25px;
+            }
+
+            .mainHeading {
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                align-items: center;
+                margin-top: 185px;
+                margin-bottom: 80px;
+                text-align: center;
+            }
+            
+            .mainHeading .title {
+                font-size: 100px;
+                color: white;
+                text-shadow: 5px 5px 15px rgba(0,0,0,0.3)
+            }
+
+            header .title {
+                cursor: pointer;
+                text-decoration: none;
+            }
+
+            .subtitle {
+                font-size: 25px;
+                color: #4E4187;
+                overflow: hidden;
+                white-space: nowrap;
+                display: inline-block;
+            }
+
+            .box {
+                padding: 0px;
+                margin: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: left;
+                align-items: center;
+                background: rgba(255, 255, 255, 0.3);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border: white;
+                border-radius: 20px;
+                border-width: 2px;
+                text-align: left;
+                text-decoration: none;
+                font-size: 18px;
+                transition: 0.3s;
+                box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+                color: #4E4187;
+                width: 1240px;
+                overflow: hidden;
+            }
+
+            .emoji {
+                font-size: 150px;
+                padding-top: 20px;
+                text-shadow: 1px 2px 6px rgba(78, 65, 135, 0.2);
+            }
+
+            .boxDiv {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                margin: 0px;
+            }
+
+            .boxContent {
+                padding: 40px;
+            }
+
+            .About img {
+                width: 300px;
+                height: 370px;
+                object-fit: cover;
+                margin: -5px;
+            }
+
+            .imageBox {
+                margin: 0px;
+                padding: 0px;
+                border-right: 2px;
+                border-color: #4E4187;
+            }
+
+            .footer {
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                width: 100%;
+                max-width: 100%;
+                background: rgb(78, 65, 135);
+                text-align: left;
+                color: #ffffffd0;
+                padding: 40px 60px;
+                box-sizing: border-box;
+            }
+
+            .footer-column {
+                flex: 1 1 250px;
+                margin: 10px 20px;
+                min-width: 220px;
+            }
+
+            .footer-column h3 {
+                color: #ffffff;
+                margin-bottom: 10px;
+                font-size: 20px;
+                text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+                border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+                padding-bottom: 5px;
+            }
+
+            .footer-column a {
+                color: #ffffffd0;
+                text-decoration: none;
+                transition: 0.3s;
+            }
+
+            .footer-column a:hover {
+                color: white;
+                text-decoration: none;
+            }
+
+            .bottomBar {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                max-width: 100%;
+                background: #292248;
+                text-align: center;
+                color: #4E4187;
+                box-sizing: border-box;
+                margin: 0px;
+                font-size: 15px;
+                padding: 7px;
+            }
+
+            .footer p {
+                color: #ffffffd0;
+                font-size: 18px;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <header>
+            <div class="heading">
+                <a class="title" href="Home Page.html">Stride for Wellness</a>
+            </div>
+
+            <div class="controlButtons">
+                <a href="Home Page.html" class="control_button">Home</a>
+                <a href="About Page.html" class="control_button">About</a>
+                <a href="Contact Page.html" class="control_button">Contact Us</a>
+            </div>
+        </header>
+
+        <div class="mainHeading">
+            <div class="title">About the Creators</div>
+
+            <i class="subtitle">Learn more about the developers of this website!</i>
+
+            <div class="emoji"><img src="https://cdn.pixabay.com/animation/2023/06/13/15/13/15-13-30-905_512.gif" alt="Coders" width="200px"></div>
+        </div>
+
+        <br>
+
+        <div class="About">
+            <div class="box">
+                <div class="boxDiv">
+                    <div class="imageBox"><img src="Shaurya.png"></div>
+                    <div class="boxContent">
+                        <h2 class="head">Shaurya Mehra</h2>
+                        <ul>
+                            <li><b>Name:</b> Shaurya Mehra</li>
+                            <li><b>Age:</b> 13 years</li>
+                            <li><b>Grade:</b> 9th</li>
+                            <li><b>Hobbies:</b> Reading, coding, building things and playing musical instruments</li>
+                            <li><b>Strengths:</b> I love exploring how design and logic come together to create meaningful experiences. My strengths lie in creativity, problem-solving, and attention to detail — whether it’s coding a smooth animation, refining a layout, or making ideas visually come alive. I enjoy learning new technologies and constantly improving my work, aiming to make every project feel both functional and inspiring.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="boxDiv">
+                    <div class="imageBox"><img src="Amoli.jpg"></div>
+                    <div class="boxContent">
+                        <h2 class="head">Amoli Agrawal</h2>
+                        <ul>
+                            <li><b>Age:</b> 13 years</li>
+                            <li><b>Grade:</b> 8th</li>
+                            <li><b>Hobbies:</b> Reading, studying, sketching, dancing, playing chess and coding</li>
+                            <li><b>Strengths:</b> I am a sincere and motivated student who believes in learning with dedication and discipline. I have been recognized for my consistent performance by earning the Blue Blazer and have actively participated in various co-curricular activities. I am on my way to develop my leadership abilities through both academics and creative pursuits.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <footer class="footer">
+            <div class="footer-column">
+                <a href="Contact Page.html"><h3 class="contactLink">💬 Contact us</h3></a>
+                <p><div style="color: #ffffff;">☎️ Phone</div><br>+91 93500 26432<br>+91 80762 69096</p>
+                <p><div style="color: #ffffff;">✉️ Email</div><br>amoli97318@gmail.com<br>shaurya70025@dpsgurgaon.org</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>📍 Location</h3>
+                <p style="font-size: 16px; line-height: 1; text-align: left; margin: 0px;">Delhi Public School<br>Sector–45, Gurugram</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>🔗 Extra Resources</h3>
+                <a href="https://healthymale.org.au/health-article/what-is-physical-mental-social-health">What is Health?</a>
+                <br>
+                <a href="https://globalwellnessinstitute.org/what-is-wellness/physical-activity/">Physical Wellness</a>
+                <br>
+                <a href="https://globalwellnessinstitute.org/what-is-wellness/mental-wellness/">Mental Wellness</a>
+                <br>
+                <a href="https://www.nih.gov/health-information/your-healthiest-self-wellness-toolkits/social-wellness-toolkit">Social Wellness</a>
+                <br>
+                <a href="https://www.who.int/health-topics/self-care#tab=tab_1">WHO Health Article</a>
+            </div>
+        </footer>
+
+        <div class="bottomBar">Copyright © 2025 | Stride for Wellness | Created by Shaurya Mehra and Amoli Agrawal</div>
+
+        <script>
+            window.addEventListener('mouseover', initLandbot, { once: true });
+            window.addEventListener('touchstart', initLandbot, { once: true });
+            var myLandbot;
+            function initLandbot() {
+                if (!myLandbot) {
+                    var s = document.createElement('script');
+                    s.type = "module"
+                    s.async = true;
+                    s.addEventListener('load', function() {
+                        myLandbot = new Landbot.Popup({
+                            configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-3192682-3QB1GKNDN3BUVDBJ/index.json',
+                        });
+                    });
+                    s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs';
+                    var x = document.getElementsByTagName('script')[0];
+                    x.parentNode.insertBefore(s, x);
+                }
+            }
+        </script>
+    </body>
+</html>
